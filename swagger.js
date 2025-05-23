@@ -9,7 +9,7 @@ const options = {
       description: 'API documentation for Posts blog',
     },
   },
-  apis: ['./routes/*.js'],
+  apis: [path.join(__dirname, './routes/*.js')],
 };
 const swaggerSpec = swaggerJSDoc(options);
 module.exports = swaggerSpec;
