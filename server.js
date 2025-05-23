@@ -12,6 +12,7 @@ const authRoutes = require("./routes/auth.routes.js");
 const userRoutes = require("./routes/user.route.js");
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./swagger");
+const path = require("path");
 
 app.use(morgan("dev"));
 
