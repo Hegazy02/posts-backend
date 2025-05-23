@@ -41,8 +41,7 @@ https://posts-backend-olive.vercel.app/
 
 | Method | Route                     | Description             | Optional Query Params                                  |
 |--------|---------------------------|-------------------------|--------------------------------------------------------|
-| GET    | `/api/posts`              | Get all posts           | `page`, `limit`, `title`, `content`, `sortBy`, `order` |                             |
-| GET    | `/api/posts`              | Get all posts           |                                                        |
+| GET    | `/api/posts`              | Get all posts           | `page`, `limit`, `title`, `content`, `sortBy`, `order` |
 | GET    | `/api/posts/:id`          | Get a specific post     |                                                        |
 | POST   | `/api/posts`              | Create a new post       |                                                        |
 | PUT    | `/api/posts/:id`          | Update an existing post |                                                        |
