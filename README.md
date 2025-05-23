@@ -42,13 +42,17 @@ A RESTful API for managing blog posts, built with **Node.js**, **Express**, and 
 
 ### 📚 Posts
 
-| Method | Route              | Description             |
-|--------|--------------------|-------------------------|
-| GET    | `/api/posts`       | Get all posts           |
-| GET    | `/api/posts/:id`   | Get a specific post     |
-| POST   | `/api/posts`       | Create a new post       |
-| PUT    | `/api/posts/:id`   | Update an existing post |
-| DELETE | `/api/posts/:id`   | Delete a post           |
+| Method | Route                     | Description             |
+|--------|---------------------------|-------------------------|
+| GET    | `/api/posts`              | Get all posts           |
+| GET    | `/api/posts/:id`          | Get a specific post     |
+| POST   | `/api/posts`              | Create a new post       |
+| PUT    | `/api/posts/:id`          | Update an existing post |
+| DELETE | `/api/posts/:id`          | Delete a post           |
+| POST   | `/api/posts/:id/comments` | Add a comment to a post |
+| POST   | `/api/posts/:id/like`     | Like or unlike a post   |
+
+
 
 ### 👤 Authentication & Users
 
