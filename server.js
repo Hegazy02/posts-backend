@@ -45,11 +45,8 @@ const verifyToken = (req, res, next) => {
   }
 };
 // Swagger
-app.use("/api-docs", express.static(path.join(__dirname, "public/swagger")));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.get("/api-docs", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/swagger/index.html"));
-});
 app.get("/swagger.json", (req, res) => {
   res.setHeader("Content-Type", "application/json");
   res.send(swaggerSpec);
