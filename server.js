@@ -10,8 +10,8 @@ const AppError = require("./utils/appError.js");
 const postRoutes = require("./routes/post.route.js");
 const authRoutes = require("./routes/auth.routes.js");
 const userRoutes = require("./routes/user.route.js");
-const swaggerUi = require('swagger-ui-express');
-const swaggerSpec = require('./swagger');
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./swagger");
 
 app.use(morgan("dev"));
 
@@ -44,7 +44,15 @@ const verifyToken = (req, res, next) => {
   }
 };
 // Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/api-docs", express.static(path.join(__dirname, "public/swagger")));
+
+app.get("/api-docs", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/swagger/index.html"));
+});
+app.get("/swagger.json", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.send(swaggerSpec);
+});
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
