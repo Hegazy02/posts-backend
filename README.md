@@ -30,16 +30,10 @@ https://posts-backend-olive.vercel.app/
 
 #### blog-backend/
 #### ├── controllers/
-#### │ └── postController.js # Controller functions for post routes
 #### ├── models/
-#### │ └── Post.js # Mongoose schema for blog posts
 #### ├── routes/
-#### │ └── postRoutes.js # Route definitions
-#### ├── .env # Environment variables
-#### ├── .gitignore # Ignored files for git
-#### ├── server.js # Entry point
+#### ├── server.js
 #### ├── package.json
-#### └── README.md
 
 ## 🛠 API Endpoints
 
