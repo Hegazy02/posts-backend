@@ -3,7 +3,10 @@
 A RESTful API for managing blog posts, built with **Node.js**, **Express**, and **MongoDB** using **Mongoose**. This backend handles post creation, editing, deletion, and retrieval for a blog application.
 
 ---
+## 🔗 Live
+https://posts-backend-olive.vercel.app/
 
+---
 ## 🚀 Features
 
 - Create, read, update, and delete (CRUD) blog posts
