@@ -10,6 +10,8 @@ const AppError = require("./utils/appError.js");
 const postRoutes = require("./routes/post.route.js");
 const authRoutes = require("./routes/auth.routes.js");
 const userRoutes = require("./routes/user.route.js");
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
 
 app.use(morgan("dev"));
 
@@ -41,6 +43,8 @@ const verifyToken = (req, res, next) => {
     next(error);
   }
 };
+// Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
