@@ -14,6 +14,7 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./swagger");
 const path = require("path");
 var cors = require("cors");
+const { log } = require("console");
 
 var whitelist = [
   "http://localhost:3000",
@@ -24,8 +25,10 @@ var corsOptions = {
   credentials: true,
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
+      console.info("Allowed by CORS", origin);
       callback(null, true);
     } else {
+      console.info("Not allowed by CORS", origin);
       callback(new Error("Not allowed by CORS"));
     }
   },
