@@ -15,7 +15,11 @@ const swaggerSpec = require("./swagger");
 const path = require("path");
 var cors = require("cors");
 
-var whitelist = ["http://localhost:3000","https://posts-backend-olive.vercel.app"];
+var whitelist = [
+  "http://localhost:3000",
+  "https://posts-backend-olive.vercel.app",
+  "http://localhost:4200",
+];
 var corsOptions = {
   credentials: true,
   origin: function (origin, callback) {
