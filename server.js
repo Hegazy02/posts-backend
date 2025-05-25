@@ -14,14 +14,23 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./swagger");
 const path = require("path");
 var cors = require("cors");
+const { log } = require("console");
 
+var whitelist = [
+  "http://localhost:3000",
+  "http://localhost:4200",
+];
+var corsOptionsDelegate = function (req, callback) {
+  var corsOptions;
+  if (whitelist.indexOf(req.header("Origin")) !== -1) {
+    corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+  } else {
+    corsOptions = { origin: false }; // disable CORS for this request
+  }
+  callback(null, corsOptions); // callback expects two parameters: error and options
+};
 
-app.use(
-  cors({
-    origin: "http://localhost:4200",
-    credentials: true,
-  })
-);
+app.use(cors(corsOptionsDelegate));
 
 app.use(morgan("dev"));
 
