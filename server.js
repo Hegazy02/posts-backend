@@ -21,20 +21,17 @@ var whitelist = [
   "https://posts-backend-olive.vercel.app",
   "http://localhost:4200",
 ];
-var corsOptions = {
-  credentials: true,
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      console.info("Allowed by CORS", origin);
-      callback(null, true);
-    } else {
-      console.info("Not allowed by CORS", origin);
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+var corsOptionsDelegate = function (req, callback) {
+  var corsOptions;
+  if (allowlist.indexOf(req.header("Origin")) !== -1) {
+    corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+  } else {
+    corsOptions = { origin: false }; // disable CORS for this request
+  }
+  callback(null, corsOptions); // callback expects two parameters: error and options
 };
 
-server.use(cors(corsOptions));
+server.use(cors(corsOptionsDelegate));
 
 app.use(morgan("dev"));
 
