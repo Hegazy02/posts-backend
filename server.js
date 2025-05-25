@@ -16,7 +16,7 @@ const path = require("path");
 var cors = require("cors");
 
 
-server.use(
+app.use(
   cors({
     origin: "http://localhost:4200",
     credentials: true,
