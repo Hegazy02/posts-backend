@@ -13,6 +13,21 @@ const userRoutes = require("./routes/user.route.js");
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./swagger");
 const path = require("path");
+var cors = require("cors");
+
+var whitelist = ["http://localhost:3000","https://posts-backend-olive.vercel.app"];
+var corsOptions = {
+  credentials: true,
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+server.use(cors(corsOptions));
 
 app.use(morgan("dev"));
 
@@ -45,7 +60,7 @@ const verifyToken = (req, res, next) => {
   }
 };
 // Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/swagger.json", (req, res) => {
   res.setHeader("Content-Type", "application/json");
