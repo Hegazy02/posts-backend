@@ -58,4 +58,7 @@ https://posts-backend-olive.vercel.app/
 | POST   | `/api/signup`      | Register a new user      |
 | POST   | `/api/signin`      | Sign in an existing user |
 | GET    | `/api/users`       | Get all registered users |
+### 📫 Postman Collection
 
+
+🔗 [Click here to open the Postman Collection](https://angular-proj.postman.co/workspace/angular-proj-Workspace~e8dd4cd0-4a00-4d31-8b89-eb03c7183e03/collection/26507427-e20aad72-c72f-4a30-ab0a-bc9dc97ee1ec?action=share&creator=26507427&active-environment=26507427-3c2533a2-af2e-47a1-9d12-cdd87f9ba262)
